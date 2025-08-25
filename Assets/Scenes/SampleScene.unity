@@ -1018,6 +1018,7 @@ MonoBehaviour:
   speed: 5
   gravity: -9.81
   jumpHeight: 2
+  _rotationSpeed: 10
 --- !u!114 &1125804331
 MonoBehaviour:
   m_ObjectHideFlags: 0

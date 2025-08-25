@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
+    [SerializeField] float _rotationSpeed = 10f;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -24,6 +25,15 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        //rotacion
+        if (move != Vector3.zero)
+        {
+            //transform.forward = move * Time.deltaTime * _rotationSpeed;
+            //Quaternion targetRotation = Quaternion.LookRotation(move);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+        }
+
 
         // Gravedad
         if (controller.isGrounded && velocity.y < 0)
