@@ -115,14 +115,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5970145767932958787}
   - component: {fileID: -6098693353519949591}
-  - component: {fileID: 811310000651050460}
   - component: {fileID: 1619054239244916791}
   - component: {fileID: 75536847971340160}
   - component: {fileID: 1596600369943385564}
   - component: {fileID: 1698280814602399834}
   - component: {fileID: 509438726251126921}
   - component: {fileID: 7047131156050357377}
-  - component: {fileID: 1834591884224611208}
+  - component: {fileID: 6465812863656066735}
+  - component: {fileID: 7990130991482162655}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -164,25 +164,9 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 811310000651050460}
+  - {fileID: 509438726251126921}
+  - {fileID: 7990130991482162655}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &811310000651050460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5110007476229489556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stateAuthorityChangeErrorCorrectionDelta: 0
-  SyncScale: 0
-  SyncParent: 0
-  _autoAOIOverride: 1
-  DisableSharedModeInterpolation: 0
 --- !u!33 &1619054239244916791
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -313,7 +297,7 @@ MonoBehaviour:
   holdPoint: {fileID: 2686261799315694498}
   grabRange: 2
   grabKey: 101
---- !u!54 &1834591884224611208
+--- !u!54 &6465812863656066735
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,11 +319,34 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &7990130991482162655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110007476229489556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a591d221a634417e9827eb58e17de84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0
+  SyncScale: 0
+  SyncParent: 1
+  _interpolationTarget: {fileID: 0}
+  UsePreciseRotation: 0
+  UseRenderSleepThresholds: 1
+  RenderThresholds:
+    UseEnergy: 1
+    Position: 0.01
+    Rotation: 0.01
+    Scale: 0.01
 --- !u!1 &5337031247102083719
 GameObject:
   m_ObjectHideFlags: 0

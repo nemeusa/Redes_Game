@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 346661240}
   - component: {fileID: 346661239}
   - component: {fileID: 346661242}
+  - component: {fileID: 346661243}
   m_Layer: 0
   m_Name: Prototype Runner
   m_TagString: Untagged
@@ -404,6 +405,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8edbe7108d8a43ab838cf8b8d9453df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &346661243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346661238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df37df1d805dbaa41a8d18e4561534fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerPrefabs:
+    RawGuidValue: 97972c951c6c3754896aa63ad893a0a7
+  _spawnPoints: []
 --- !u!1 &351257958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPrefabs:
     RawGuidValue: 97972c951c6c3754896aa63ad893a0a7
+  _spawnPoints: []
 --- !u!4 &1787734986
 Transform:
   m_ObjectHideFlags: 0
@@ -1215,6 +1232,7 @@ GameObject:
   - component: {fileID: 1829826097}
   - component: {fileID: 1829826098}
   - component: {fileID: 1829826099}
+  - component: {fileID: 1829826100}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Grabbable
@@ -1310,6 +1328,25 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &1829826100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829826095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 2252456616
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1829826099}
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &1946882865
 GameObject:
   m_ObjectHideFlags: 0
