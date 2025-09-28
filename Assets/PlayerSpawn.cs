@@ -7,10 +7,6 @@ public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
 
     [SerializeField] Transform[] _spawnPoints;
 
-    private void Update()
-    {
-       // PlayerJoined(a);
-    }
     public void PlayerJoined(PlayerRef player)
    {
         if (player == Runner.LocalPlayer)
@@ -19,7 +15,7 @@ public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
 
             var spawnPoint = _spawnPoints[Runner.SessionInfo.PlayerCount - 1];
 
-            Runner.Spawn(_playerPrefabs, new Vector3(0,1,0), Quaternion.identity);
+            Runner.Spawn(_playerPrefabs, spawnPoint.position, spawnPoint.rotation);
 
         }
    }
