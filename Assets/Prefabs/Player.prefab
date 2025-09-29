@@ -101,7 +101,7 @@ MonoBehaviour:
   speed: 5
   gravity: -9.81
   jumpHeight: 2
-  _rotationSpeed: 10
+  _rotationSpeed: 0.5
 --- !u!114 &7047131156050357377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,12 +180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateAuthorityChangeErrorCorrectionDelta: 0
-  gravity: -20
+  gravity: -9.18
   jumpImpulse: 8
   acceleration: 10
   braking: 10
-  maxSpeed: 2
-  rotationSpeed: 15
+  maxSpeed: 20
+  rotationSpeed: 0.5
 --- !u!1 &5337031247102083719
 GameObject:
   m_ObjectHideFlags: 0
