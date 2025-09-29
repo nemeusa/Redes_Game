@@ -7,6 +7,8 @@ public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
 
     [SerializeField] Transform[] _spawnPoints;
 
+    [SerializeField] Camera _camera;
+
     public void PlayerJoined(PlayerRef player)
    {
         if (player == Runner.LocalPlayer)
@@ -15,8 +17,8 @@ public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
 
             var spawnPoint = _spawnPoints[Runner.SessionInfo.PlayerCount - 1];
 
-            Runner.Spawn(_playerPrefabs, spawnPoint.position, spawnPoint.rotation);
-
+            var client = Runner.Spawn(_playerPrefabs, spawnPoint.position, spawnPoint.rotation);
+            client.GetComponent<PlayerController>().cameraTransform = transform;
         }
    }
 }

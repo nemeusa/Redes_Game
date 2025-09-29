@@ -101,7 +101,8 @@ MonoBehaviour:
   speed: 5
   gravity: -9.81
   jumpHeight: 2
-  _rotationSpeed: 0.5
+  _rotationSpeed: 2
+  cameraTransform: {fileID: 0}
 --- !u!114 &7047131156050357377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +186,7 @@ MonoBehaviour:
   acceleration: 10
   braking: 10
   maxSpeed: 20
-  rotationSpeed: 0.5
+  rotationSpeed: 2
 --- !u!1 &5337031247102083719
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 5337031247102083719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.162, z: 0.922}
+  m_LocalPosition: {x: 0, y: -0.162, z: 0.561}
   m_LocalScale: {x: 0.60225, y: 0.60225, z: 0.60225}
   m_ConstrainProportionsScale: 0
   m_Children: []
