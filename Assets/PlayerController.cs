@@ -35,21 +35,17 @@ public class PlayerController : NetworkBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        //rotacion
         if (move.magnitude > 0.01f)
         {
-            // Rotación suave solo en Y
             Quaternion targetRotation = Quaternion.LookRotation(move);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Runner.DeltaTime * _rotationSpeed);
 
-            // Forzar que no se incline en X/Z
             Vector3 euler = transform.eulerAngles;
             transform.rotation = Quaternion.Euler(0f, euler.y, 0f);
         }
         controller.Move(move * speed * Runner.DeltaTime);
 
 
-        // Gravedad
         if (controller.Grounded && velocity.y < 0)
         {
             velocity.y = -2f;
