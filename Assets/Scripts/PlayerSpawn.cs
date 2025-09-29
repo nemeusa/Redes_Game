@@ -1,4 +1,5 @@
 using Fusion;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
@@ -8,6 +9,10 @@ public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
     [SerializeField] Transform[] _spawnPoints;
 
     [SerializeField] Camera _camera;
+
+    [SerializeField] NetworkPrefabRef[] _armsPrefabs;
+    [SerializeField] Transform[] _spawnPointsArms;
+    int _armsCount = 0;
 
     public void PlayerJoined(PlayerRef player)
    {

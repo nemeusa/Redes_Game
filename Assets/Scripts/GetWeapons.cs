@@ -42,11 +42,11 @@ public class GetWeapons : NetworkBehaviour
             Arms arms = armsCol.GetComponent<Arms>();
             if (arms != null)
             {
-                NetworkObject netObj = arms.GetComponent<NetworkObject>();
-                if (netObj != null && !netObj.HasStateAuthority)
-                {
-                    netObj.RequestStateAuthority();
-                }
+                //NetworkObject netObj = arms.GetComponent<NetworkObject>();
+                //if (netObj != null && !netObj.HasStateAuthority)
+                //{
+                //    netObj.RequestStateAuthority();
+                //}
 
                 currentArms = arms;
                 currentArms.inHand = true;
@@ -56,14 +56,14 @@ public class GetWeapons : NetworkBehaviour
                 if (currentArms.weaponsType == WeaponsType.Masa)
                 {
                     Debug.Log("agarra masa");
-                    arms.transform.localPosition = new Vector3(1.32f, 12.15f, 0.85f);
-                    arms.transform.localRotation = Quaternion.Euler(262, 0, 0);
+                    arms.transform.localPosition = new Vector3(0.76f, 0.83f, 0.37f);
+                    arms.transform.localRotation = Quaternion.Euler(44.4f, 0, 0);
                 }
                 else
                 {
                     Debug.Log("Agarra silla");
-                    arms.transform.localPosition = new Vector3(0.0518481f, 0.1003463f, 0.4738743f);
-                    arms.transform.localRotation = Quaternion.Euler(-138.785f, -3.242981f, 90);
+                    arms.transform.localPosition = new Vector3(2.3f, 0.55f, -2.73f);
+                    arms.transform.localRotation = Quaternion.Euler(-8.7f, 96.23f, -30.9f);
                 }
 
                 //Rigidbody rb = arms.GetComponent<Rigidbody>();
