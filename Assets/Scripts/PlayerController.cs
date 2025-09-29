@@ -14,11 +14,16 @@ public class PlayerController : NetworkBehaviour
     private Vector3 velocity;
     private float verticalVelocity;
 
+    public float MaxHealth;
+    [Networked, OnChangedRender(nameof(HealthChanged))] public float Health { get; set; }
+
     public override void Spawned()
     {
         if (HasStateAuthority)
         {
             controller = GetComponent<NetworkCharacterController>();
+
+            Health = MaxHealth;
         }
     }
 
@@ -57,6 +62,17 @@ public class PlayerController : NetworkBehaviour
         }
 
         velocity.y += gravity * Runner.DeltaTime;
+    }
+
+    void HealthChanged()
+    {
+        //aca podemos hacer que pasen cosas cuando cambie la vida del personaje
+
+    }
+
+    [Rpc (RpcSources.All, RpcTargets.StateAuthority)] public void TakeDamage(float damage)
+    {
+        Health -= damage;
     }
 }
 
