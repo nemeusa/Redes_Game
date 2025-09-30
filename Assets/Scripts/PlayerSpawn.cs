@@ -14,6 +14,9 @@ public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
     [SerializeField] Transform[] _spawnPointsArms;
     int _armsCount = 0;
 
+    [SerializeField] Arms _chairInScene;
+    [SerializeField] Arms _mazaInScene;
+
     public void PlayerJoined(PlayerRef player)
    {
         if (player == Runner.LocalPlayer)
@@ -23,7 +26,10 @@ public class PlayerSpawn : SimulationBehaviour, IPlayerJoined
             var spawnPoint = _spawnPoints[Runner.SessionInfo.PlayerCount - 1];
 
             var client = Runner.Spawn(_playerPrefabs, spawnPoint.position, spawnPoint.rotation);
+
             client.GetComponent<PlayerController>().cameraTransform = transform;
+            client.GetComponent<GetWeapons>().chairInScene = _chairInScene;
+            client.GetComponent<GetWeapons>().mazaInScene = _mazaInScene;
         }
    }
 }

@@ -801,6 +801,8 @@ MonoBehaviour:
   _spawnPointsArms:
   - {fileID: 1469506870}
   - {fileID: 1246551023}
+  _chairInScene: {fileID: 1677047672}
+  _mazaInScene: {fileID: 1965467145}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,6 +2217,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672594061}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1677047672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4024475884198710593, guid: eb49f38e072172e41b9dabbec0fe5e46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1368377834}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1698613922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 814487fe2d6199645975d808071bea77,
@@ -2409,6 +2423,18 @@ MonoBehaviour:
   _spawnPointsArms:
   - {fileID: 1469506870}
   - {fileID: 1246551023}
+--- !u!114 &1965467145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2726640874044033724, guid: 382778c279ff9c048a6cf65d61223049,
+    type: 3}
+  m_PrefabInstance: {fileID: 508329244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2096885341
 PrefabInstance:
   m_ObjectHideFlags: 0

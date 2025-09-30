@@ -19,8 +19,15 @@ public class GetWeapons : NetworkBehaviour
 
     bool gettinArm;
 
+    [SerializeField] private SwitchObject switchObject; // arrastrá aquí el objeto en el Inspector
 
-    
+    [SerializeField] private GameObject chair;
+    [SerializeField] private GameObject maza;
+
+    public Arms chairInScene;
+    public Arms mazaInScene;
+
+
     public override void FixedUpdateNetwork()
     {
         
@@ -31,6 +38,7 @@ public class GetWeapons : NetworkBehaviour
             Debug.Log("Press E");
             GetObjects2();
         }
+
     }
 
     void GetObjects2()
@@ -42,34 +50,36 @@ public class GetWeapons : NetworkBehaviour
             Arms arms = armsCol.GetComponent<Arms>();
             if (arms != null)
             {
-                //NetworkObject netObj = arms.GetComponent<NetworkObject>();
-                //if (netObj != null && !netObj.HasStateAuthority)
-                //{
-                //    netObj.RequestStateAuthority();
-                //}
-
                 currentArms = arms;
                 currentArms.inHand = true;
 
-                arms.transform.SetParent(getPoint);
+                //arms.transform.SetParent(getPoint);
 
                 if (currentArms.weaponsType == WeaponsType.Masa)
                 {
+                    Runner.Despawn(mazaInScene.Object);
+                    switchObject.ToggleChildMaza();
                     Debug.Log("agarra masa");
-                    arms.transform.localPosition = new Vector3(0.76f, 0.83f, 0.37f);
-                    arms.transform.localRotation = Quaternion.Euler(44.4f, 0, 0);
+
+                    //maza.SetActive(true);
+                    //arms.transform.localPosition = new Vector3(0.76f, 0.83f, 0.37f);
+                    //arms.transform.localRotation = Quaternion.Euler(44.4f, 0, 0);
                 }
                 else
                 {
+                    Runner.Despawn(chairInScene.Object);
+                    switchObject.ToggleChildChair();
                     Debug.Log("Agarra silla");
-                    arms.transform.localPosition = new Vector3(2.3f, 0.55f, -2.73f);
-                    arms.transform.localRotation = Quaternion.Euler(-8.7f, 96.23f, -30.9f);
+
+                    //chair.SetActive(true);
+                    //arms.transform.localPosition = new Vector3(2.3f, 0.55f, -2.73f);
+                    //arms.transform.localRotation = Quaternion.Euler(-8.7f, 96.23f, -30.9f);
                 }
 
-                //Rigidbody rb = arms.GetComponent<Rigidbody>();
-                //if (rb) rb.isKinematic = true;
-
                 gettinArm = true;
+
+         
+                
 
                 break;
             }
@@ -82,4 +92,6 @@ public class GetWeapons : NetworkBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(getPoint.position, getRange);
     }
+
+
 }
