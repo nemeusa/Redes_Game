@@ -27,6 +27,8 @@ public class GetWeapons : NetworkBehaviour
     public Arms chairInScene;
     public Arms mazaInScene;
 
+    [SerializeField] Arms[] allArms;
+
 
     public override void FixedUpdateNetwork()
     {
@@ -50,40 +52,63 @@ public class GetWeapons : NetworkBehaviour
             Arms arms = armsCol.GetComponent<Arms>();
             if (arms != null)
             {
-                currentArms = arms;
-                currentArms.inHand = true;
+                arms.inHand = true;
 
-                //arms.transform.SetParent(getPoint);
 
-                if (currentArms.weaponsType == WeaponsType.Masa)
-                {
-                    Runner.Despawn(mazaInScene.Object);
-                    switchObject.ToggleChildMaza();
-                    Debug.Log("agarra masa");
+                //if (arms.weaponsType == WeaponsType.Masa)
+                //{
+                //    Runner.Despawn(mazaInScene.Object);
+                //    switchObject.ToggleChildMaza();
+                //    Debug.Log("agarra masa");
+                //}
+                //else if (arms.weaponsType == WeaponsType.Chair)
+                //{
+                //    Runner.Despawn(chairInScene.Object);
+                //    switchObject.ToggleChildChair();
+                //    Debug.Log("Agarra silla");
+                //}
 
-                    //maza.SetActive(true);
-                    //arms.transform.localPosition = new Vector3(0.76f, 0.83f, 0.37f);
-                    //arms.transform.localRotation = Quaternion.Euler(44.4f, 0, 0);
-                }
-                else
-                {
-                    Runner.Despawn(chairInScene.Object);
-                    switchObject.ToggleChildChair();
-                    Debug.Log("Agarra silla");
 
-                    //chair.SetActive(true);
-                    //arms.transform.localPosition = new Vector3(2.3f, 0.55f, -2.73f);
-                    //arms.transform.localRotation = Quaternion.Euler(-8.7f, 96.23f, -30.9f);
-                }
+                //if (arms.weaponsType == WeaponsType.Masa)
+                //{
+                //    Runner.Despawn(mazaInScene.Object);
+                //    Debug.Log("agarra masa");
+                //}
+                //else if (arms.weaponsType == WeaponsType.Chair)
+                //{
+                //    Runner.Despawn(chairInScene.Object);
+                //    Debug.Log("Agarra silla");
+                //}
+
+                var currentArm = ChooseArm(arms);
+
+             
+                Runner.Despawn(arms.Object);
+
+                currentArm.GetComponent<Arms>().childArm.SetActive(true);
+
+                switchObject.ToggleChild(currentArm.GetComponent<Arms>().childArm);
 
                 gettinArm = true;
-
-         
                 
 
                 break;
             }
         }
+    }
+
+    GameObject ChooseArm(Arms arm)
+    {
+        GameObject actuallyArm = allArms[0].gameObject;
+        for (int i = 0; i < allArms.Length; i++)
+        {
+            if (allArms[i].weaponsType == arm.weaponsType)
+            {
+                Debug.Log("agarraste " + allArms[i].weaponsType);
+                actuallyArm = allArms[i].gameObject;
+            }
+        }
+        return actuallyArm;
     }
 
     private void OnDrawGizmosSelected()

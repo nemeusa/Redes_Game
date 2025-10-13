@@ -10,6 +10,8 @@ public class Arms : NetworkBehaviour
     public Transform playerGetPoint;
     public WeaponsType weaponsType;
 
+    public GameObject childArm;
+
     //private void Update()
     //{
     //    if (inHand)

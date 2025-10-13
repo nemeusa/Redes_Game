@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5675616788411088636}
   - component: {fileID: 4985918566125246419}
-  - component: {fileID: 8164991074993491583}
   - component: {fileID: 4024475884198710593}
+  - component: {fileID: 8164991074993491583}
   - component: {fileID: 4743826679704190122}
   m_Layer: 3
   m_Name: Chair
@@ -53,9 +53,25 @@ MonoBehaviour:
   Flags: 524289
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 8164991074993491583}
   - {fileID: 4024475884198710593}
+  - {fileID: 8164991074993491583}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &4024475884198710593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273095238746909176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inHand: 0
+  getPoint: {fileID: 0}
+  playerGetPoint: {fileID: 0}
+  weaponsType: 1
 --- !u!114 &8164991074993491583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,22 +89,6 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &4024475884198710593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273095238746909176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inHand: 0
-  getPoint: {fileID: 0}
-  playerGetPoint: {fileID: 0}
-  weaponsType: 1
 --- !u!65 &4743826679704190122
 BoxCollider:
   m_ObjectHideFlags: 0

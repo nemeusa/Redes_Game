@@ -109,12 +109,12 @@ Transform:
   m_GameObject: {fileID: 1214823132627106991}
   serializedVersion: 2
   m_LocalRotation: {x: -0.10122265, y: 0.6916157, z: -0.1035619, w: 0.70759916}
-  m_LocalPosition: {x: 2.593, y: 0.74, z: -2.589}
-  m_LocalScale: {x: 0.20196103, y: 0.20196103, z: 0.20196103}
+  m_LocalPosition: {x: 2.5930002, y: 0.74, z: -2.5890002}
+  m_LocalScale: {x: 0.20196103, y: 0.20196101, z: 0.20196103}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5161259966019393494}
-  m_Father: {fileID: 2686261799315694498}
+  m_Father: {fileID: 3549567065206704493}
   m_LocalEulerAnglesHint: {x: 0, y: 88.691, z: -16.653}
 --- !u!65 &3061216380958052612
 BoxCollider:
@@ -320,7 +320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6674453496933482483
 Transform:
   m_ObjectHideFlags: 0
@@ -330,12 +330,12 @@ Transform:
   m_GameObject: {fileID: 4700339131255122585}
   serializedVersion: 2
   m_LocalRotation: {x: 0.14232136, y: -0, z: -0, w: 0.98982054}
-  m_LocalPosition: {x: 0.934, y: 0.758, z: -0.339}
-  m_LocalScale: {x: 0.196605, y: 0.196605, z: 0.196605}
+  m_LocalPosition: {x: 0.9340001, y: 0.7580001, z: -0.339}
+  m_LocalScale: {x: 0.19660501, y: 0.19660503, z: 0.19660503}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8396794193547930240}
-  m_Father: {fileID: 2686261799315694498}
+  m_Father: {fileID: 4564969771050768920}
   m_LocalEulerAnglesHint: {x: 16.364, y: 0, z: 0}
 --- !u!65 &3660452712579603118
 BoxCollider:
@@ -441,6 +441,8 @@ MonoBehaviour:
   - {fileID: 2539546014887356271}
   - {fileID: 4127920087326373666}
   - {fileID: 3074632980519120924}
+  - {fileID: 932520863188176859}
+  - {fileID: 1726471524904392995}
   ForceRemoteRenderTimeframe: 0
 --- !u!143 &1698280814602399834
 CharacterController:
@@ -579,6 +581,9 @@ MonoBehaviour:
   maza: {fileID: 0}
   chairInScene: {fileID: 0}
   mazaInScene: {fileID: 0}
+  allArms:
+  - {fileID: 932520863188176859}
+  - {fileID: 1726471524904392995}
 --- !u!114 &3074632980519120924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,8 +596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba049ab7e922533479767e6b61ee8313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chair: {fileID: 1214823132627106991}
-  maza: {fileID: 4700339131255122585}
 --- !u!1 &5337031247102083719
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,8 +627,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6674453496933482483}
-  - {fileID: 1751688129888486542}
+  - {fileID: 4564969771050768920}
+  - {fileID: 3549567065206704493}
   m_Father: {fileID: 5970145767932958787}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6860208724015324438
@@ -878,3 +881,103 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7542998335634390837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4564969771050768920}
+  - component: {fileID: 932520863188176859}
+  m_Layer: 0
+  m_Name: Masa active
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4564969771050768920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542998335634390837}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6674453496933482483}
+  m_Father: {fileID: 2686261799315694498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932520863188176859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542998335634390837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inHand: 0
+  getPoint: {fileID: 0}
+  playerGetPoint: {fileID: 0}
+  weaponsType: 0
+  childArm: {fileID: 4700339131255122585}
+--- !u!1 &7689986019999292038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3549567065206704493}
+  - component: {fileID: 1726471524904392995}
+  m_Layer: 0
+  m_Name: Chair Active
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3549567065206704493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689986019999292038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1751688129888486542}
+  m_Father: {fileID: 2686261799315694498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726471524904392995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689986019999292038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inHand: 0
+  getPoint: {fileID: 0}
+  playerGetPoint: {fileID: 0}
+  weaponsType: 1
+  childArm: {fileID: 1214823132627106991}
