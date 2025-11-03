@@ -395,7 +395,6 @@ GameObject:
   - component: {fileID: 4965326784734036654}
   - component: {fileID: 2539546014887356271}
   - component: {fileID: 4127920087326373666}
-  - component: {fileID: 3074632980519120924}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -440,7 +439,6 @@ MonoBehaviour:
   - {fileID: 509438726251126921}
   - {fileID: 2539546014887356271}
   - {fileID: 4127920087326373666}
-  - {fileID: 3074632980519120924}
   - {fileID: 932520863188176859}
   - {fileID: 1726471524904392995}
   ForceRemoteRenderTimeframe: 0
@@ -568,34 +566,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b380a9e1e1a7b8346be2d9850b16f6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getRange: 2.23
+  getRange: 2.86
   getRate: 1
   objectLayer:
     serializedVersion: 2
     m_Bits: 8
   getPoint: {fileID: 2686261799315694498}
-  animator: {fileID: 0}
   currentArms: {fileID: 0}
-  switchObject: {fileID: 3074632980519120924}
-  chair: {fileID: 0}
-  maza: {fileID: 0}
-  chairInScene: {fileID: 0}
-  mazaInScene: {fileID: 0}
   allArms:
   - {fileID: 932520863188176859}
   - {fileID: 1726471524904392995}
---- !u!114 &3074632980519120924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5110007476229489556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba049ab7e922533479767e6b61ee8313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5337031247102083719
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +587,7 @@ GameObject:
   - component: {fileID: 2686261799315694498}
   - component: {fileID: 6860208724015324438}
   - component: {fileID: 4866903215385980459}
+  - component: {fileID: 659239583109007954}
   m_Layer: 0
   m_Name: Pick up
   m_TagString: Untagged
@@ -681,6 +662,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &659239583109007954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337031247102083719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1014831617, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  SphereRadius: 2.4
+  CapsuleRadius: 0
+  BoxExtents: {x: 0, y: 0, z: 0}
+  CapsuleExtents: 0
+  Offset: {x: 0, y: 0, z: 0}
+  Root: {fileID: 0}
+  GizmosColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &5746055751685619606
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,9 +927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inHand: 0
-  getPoint: {fileID: 0}
-  playerGetPoint: {fileID: 0}
   weaponsType: 0
   childArm: {fileID: 4700339131255122585}
 --- !u!1 &7689986019999292038
@@ -976,8 +974,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e0c01c506eb5c4eae27f8353d3ed44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inHand: 0
-  getPoint: {fileID: 0}
-  playerGetPoint: {fileID: 0}
   weaponsType: 1
   childArm: {fileID: 1214823132627106991}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 
@@ -12,20 +10,11 @@ public class GetWeapons : NetworkBehaviour
 
     [Header("Referencias")]
     public Transform getPoint;        
-    public Animator animator;
     public Arms currentArms;
 
     private WeaponsType weaponsType;
 
     bool gettinArm;
-
-    [SerializeField] private SwitchObject switchObject; // arrastrá aquí el objeto en el Inspector
-
-    [SerializeField] private GameObject chair;
-    [SerializeField] private GameObject maza;
-
-    public Arms chairInScene;
-    public Arms mazaInScene;
 
     [SerializeField] Arms[] allArms;
 
@@ -45,79 +34,34 @@ public class GetWeapons : NetworkBehaviour
 
     void GetObjects2()
     {
-        Collider[] getArms = Physics.OverlapSphere(getPoint.position, getRange, objectLayer);
+        Collider[] getArms = Physics.OverlapSphere(getPoint.position, getRange, objectLayer); // PONER COLLIDER DE PHOTON
 
         foreach (Collider armsCol in getArms)
         {
             Arms arms = armsCol.GetComponent<Arms>();
             if (arms != null)
             {
-                arms.inHand = true;
-
-
-                //if (arms.weaponsType == WeaponsType.Masa)
-                //{
-                //    Runner.Despawn(mazaInScene.Object);
-                //    switchObject.ToggleChildMaza();
-                //    Debug.Log("agarra masa");
-                //}
-                //else if (arms.weaponsType == WeaponsType.Chair)
-                //{
-                //    Runner.Despawn(chairInScene.Object);
-                //    switchObject.ToggleChildChair();
-                //    Debug.Log("Agarra silla");
-                //}
-
-
-                //if (arms.weaponsType == WeaponsType.Masa)
-                //{
-                //    Runner.Despawn(mazaInScene.Object);
-                //    Debug.Log("agarra masa");
-                //}
-                //else if (arms.weaponsType == WeaponsType.Chair)
-                //{
-                //    Runner.Despawn(chairInScene.Object);
-                //    Debug.Log("Agarra silla");
-                //}
-
-                //var currentArm = ChooseArm(arms);
-                //var currentArm = arms.weaponsType;
-
 
                 Runner.Despawn(arms.Object);
 
-                //currentArm.GetComponent<Arms>().childArm.SetActive(true);
-
-                //Arms actuallyArm;
                 foreach (var a in allArms) if (a.weaponsType == arms.weaponsType) currentArms = a; 
 
-                currentArms.childArm.SetActive(true);
 
-                switchObject.ToggleChild(currentArms.childArm);
+                if (HasStateAuthority)
+                    RpcToggleChild();
 
-                Debug.Log("agarraste " + currentArms.weaponsType);
 
                 gettinArm = true;
-                
-                
 
-                break;
+                //break;
             }
         }
     }
 
-    GameObject ChooseArm(Arms arm)
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RpcToggleChild()
     {
-        GameObject actuallyArm = allArms[0].gameObject;
-        for (int i = 0; i < allArms.Length; i++)
-        {
-            if (allArms[i].weaponsType == arm.weaponsType)
-            {
-                Debug.Log("agarraste " + allArms[i].weaponsType);
-                actuallyArm = allArms[i].gameObject;
-            }
-        }
-        return actuallyArm;
+        currentArms.childArm.SetActive(true);
     }
 
     private void OnDrawGizmosSelected()
@@ -126,6 +70,5 @@ public class GetWeapons : NetworkBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(getPoint.position, getRange);
     }
-
 
 }
