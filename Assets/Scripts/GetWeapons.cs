@@ -80,16 +80,25 @@ public class GetWeapons : NetworkBehaviour
                 //    Debug.Log("Agarra silla");
                 //}
 
-                var currentArm = ChooseArm(arms);
+                //var currentArm = ChooseArm(arms);
+                //var currentArm = arms.weaponsType;
 
-             
+
                 Runner.Despawn(arms.Object);
 
-                currentArm.GetComponent<Arms>().childArm.SetActive(true);
+                //currentArm.GetComponent<Arms>().childArm.SetActive(true);
 
-                switchObject.ToggleChild(currentArm.GetComponent<Arms>().childArm);
+                //Arms actuallyArm;
+                foreach (var a in allArms) if (a.weaponsType == arms.weaponsType) currentArms = a; 
+
+                currentArms.childArm.SetActive(true);
+
+                switchObject.ToggleChild(currentArms.childArm);
+
+                Debug.Log("agarraste " + currentArms.weaponsType);
 
                 gettinArm = true;
+                
                 
 
                 break;

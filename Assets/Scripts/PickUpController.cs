@@ -7,7 +7,7 @@ public class PickUpController : MonoBehaviour
 {
     public Weapon weaponScript;
     public Rigidbody rb;
-    public BoxCollider collider;
+    public BoxCollider _collider;
     public Transform player, weaponContainer;
 
     public float pickUpRange;
@@ -27,13 +27,13 @@ public class PickUpController : MonoBehaviour
         {
             weaponScript.enabled = false;
             rb.isKinematic = false;
-            collider.isTrigger = false;
+            _collider.isTrigger = false;
         }
         else
         {
             weaponScript.enabled = true;
             rb.isKinematic = true;
-            collider.isTrigger = true;
+            _collider.isTrigger = true;
             slotFull = true;
         }
     }
@@ -54,7 +54,7 @@ public class PickUpController : MonoBehaviour
         slotFull = true;
 
         rb.isKinematic = true;
-        collider.isTrigger = true;
+        _collider.isTrigger = true;
 
         weaponScript.enabled = true;
     }
@@ -65,7 +65,7 @@ public class PickUpController : MonoBehaviour
         slotFull = false;
 
         rb.isKinematic = false;
-        collider.isTrigger = false;
+        _collider.isTrigger = false;
 
         //carry player momentum
         rb.velocity = player.GetComponent<Rigidbody>().velocity;

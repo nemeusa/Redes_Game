@@ -39,11 +39,15 @@ public class SwitchObject : NetworkBehaviour
     {
         bool newState = !obj.activeSelf;
         obj.SetActive(newState);
+        var a = obj.GetComponent<Arms>();
+
+        Debug.Log(a.weaponsType);
     }
 
     public void ToggleChild(GameObject ob)
     {
         obj = ob;
+        Debug.Log(ob.GetComponent<Arms>().weaponsType + " paso 1");
         if (HasStateAuthority)
             RpcToggleChild();
     }
