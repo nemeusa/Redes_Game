@@ -22,7 +22,7 @@ public class GetWeapons : NetworkBehaviour
     public override void FixedUpdateNetwork()
     {
         
-       // if (!HasInputAuthority) return;
+        //if (!HasInputAuthority) return;
 
         if (Input.GetKeyDown(KeyCode.E) && !gettinArm)
         {
@@ -41,27 +41,38 @@ public class GetWeapons : NetworkBehaviour
             Arms arms = armsCol.GetComponent<Arms>();
             if (arms != null)
             {
+                weaponsType = arms.weaponsType;
 
-                Runner.Despawn(arms.Object);
-
-                foreach (var a in allArms) if (a.weaponsType == arms.weaponsType) currentArms = a; 
-
+                RpcRequestDespawn(arms._object.Id);
 
                 if (HasStateAuthority)
-                    RpcToggleChild();
-
+                    RpcToggleChild((int)weaponsType);
 
                 gettinArm = true;
-
-                //break;
             }
         }
     }
 
+
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    public void RpcToggleChild()
+    public void RpcToggleChild(int type)
     {
-        currentArms.childArm.SetActive(true);
+        foreach (var a in allArms)
+        {
+            if ((int)a.weaponsType == type)
+            {
+                a.childArm.SetActive(true);
+                currentArms = a;
+                break;
+            }
+        }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcRequestDespawn(NetworkId id)
+    {
+        if (Runner.TryFindObject(id, out NetworkObject netObj))
+            Runner.Despawn(netObj);
     }
 
     private void OnDrawGizmosSelected()
